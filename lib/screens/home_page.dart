@@ -9,9 +9,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final List<Color> gradient = [
+    Colors.grey,
+    Colors.redAccent,
+  ];
+  double fillPercent = 56.23; // fills 56.23% for container from bottom
   int pageIndex = 0;
   @override
   Widget build(BuildContext context) {
+    double fillStop = (100 - fillPercent) / 100;
+    List<double> stops = [0.0, fillStop, fillStop, 1.0];
     return Scaffold(
       backgroundColor: backgroundColor,
       bottomNavigationBar: _buildMyNavBar(context),
@@ -118,7 +125,66 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
+            // const SizedBox(height: 20),
+            //most popular section
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text(
+                  'MOST POPULAR',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                  ),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [
+                    Text(
+                      'more',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_right_rounded,
+                      color: Colors.white,
+                    ),
+                  ],
+                )
+              ],
+            ),
+            // const SizedBox(height: 20),
             // most popular section
+            Container(
+              height: 100,
+              width: 150,
+              decoration: BoxDecoration(
+                color: secondryColor,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Column(
+                children: [
+                  // Image.asset(''),
+                  Container(
+                    height: 20,
+                    width: 20,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(color: primaryColor),
+                      gradient: LinearGradient(
+                        colors: gradient,
+                        stops: stops,
+                        end: Alignment.bottomLeft,
+                        begin: Alignment.topRight,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
