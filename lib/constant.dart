@@ -31,6 +31,10 @@ const productsList = [
       "assets/images/shoe1-4.png",
       "assets/images/shoe1-5.png",
     ],
+    "shoeColor": [
+      {"color1": 0xff93f85e, "color2": 0xff0a090b},
+      {"color1": 0xff93f85e, "color2": 0xffffffff},
+    ]
   },
   {
     "title": "PUMA - ATOM",
@@ -43,6 +47,12 @@ const productsList = [
       "assets/images/shoe2-4.png",
       "assets/images/shoe2-5.png",
     ],
+    "shoeColor": [
+      {"color1": 0xff93f85e, "color2": 0xff0a090b},
+      {"color1": 0xff93f85e, "color2": 0xffffffff},
+      {"color1": 0xff93f85e, "color2": 0xff37a9ba},
+      {"color1": 0xffffffff, "color2": 0xffd8dc3f},
+    ]
   },
   {
     "title": "PUMA - SOFTRIDE",
@@ -55,6 +65,11 @@ const productsList = [
       "assets/images/shoe3-4.png",
       "assets/images/shoe3-5.png",
     ],
+    "shoeColor": [
+      {"color1": 0xff93f85e, "color2": 0xff0a090b},
+      {"color1": 0xff93f85e, "color2": 0xffffffff},
+      {"color1": 0xff93f85e, "color2": 0xff37a9ba},
+    ]
   },
   {
     "title": "PUMA - FLYER",
@@ -67,5 +82,10 @@ const productsList = [
       "assets/images/shoe4-4.png",
       "assets/images/shoe4-5.png",
     ],
+    "shoeColor": [
+      {"color1": 0xff93f85e, "color2": 0xff0a090b},
+      {"color1": 0xff93f85e, "color2": 0xffffffff},
+      {"color1": 0xffffffff, "color2": 0xffd8dc3f},
+    ]
   },
 ];
