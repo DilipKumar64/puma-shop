@@ -20,6 +20,7 @@ class ShoeColorIndicator extends StatelessWidget {
     return Container(
       height: 20,
       width: 20,
+      margin: const EdgeInsets.only(left: 4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         border: Border.all(color: primaryColor, width: 2),

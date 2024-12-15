@@ -15,160 +15,194 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: _buildMyNavBar(context),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          children: [
-            // app bar
-            _buildAppBar(),
-            const SizedBox(height: 10),
-            // search filed with filter icon
-            _buildSearchAndFilter(),
-            const SizedBox(height: 20),
-            // category slider
-            _buildCategorySlider(),
-            const SizedBox(height: 20),
-            // new collection title section
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text(
-                  'NEWEST COLLECTION',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                  ),
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    Text(
-                      'more',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    Icon(
-                      Icons.arrow_right_rounded,
-                      color: Colors.white,
-                    ),
-                  ],
-                )
-              ],
-            ),
-            const SizedBox(height: 20),
-            // new collection section
-            Expanded(
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: productsList.length,
-                itemBuilder: (context, index) {
-                  Map<String, dynamic> product = productsList[index];
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 20.0),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 220,
-                          width: 180,
-                          decoration: BoxDecoration(
-                            color: secondryColor,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Image.asset(product['image']),
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Container(
-                              height: 40,
-                              width: 120,
-                              decoration: BoxDecoration(
-                                color: primaryColor,
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  "ADD TO BASKET",
-                                  style: TextStyle(fontWeight: FontWeight.w500),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 15),
-                            Container(
-                              height: 40,
-                              width: 40,
-                              padding: const EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                color: secondryColor,
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                              child: Image.asset(
-                                'assets/icons/bookmark.png',
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-            // const SizedBox(height: 20),
-            //most popular section
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text(
-                  'MOST POPULAR',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                  ),
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    Text(
-                      'more',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    Icon(
-                      Icons.arrow_right_rounded,
-                      color: Colors.white,
-                    ),
-                  ],
-                )
-              ],
-            ),
-            // const SizedBox(height: 20),
-            // most popular section
-            Container(
-              height: 100,
-              width: 150,
-              decoration: BoxDecoration(
-                color: secondryColor,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            children: [
+              // app bar
+              _buildAppBar(),
+              const SizedBox(height: 10),
+              // search filed with filter icon
+              _buildSearchAndFilter(),
+              const SizedBox(height: 20),
+              // category slider
+              _buildCategorySlider(),
+              const SizedBox(height: 20),
+              // new collection title section
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const ShoeColorIndicator(
-                    color1: primaryColor,
-                    color2: Colors.black,
+                  Text(
+                    'NEWEST COLLECTION',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'more',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_right_rounded,
+                        color: Colors.white,
+                      ),
+                    ],
                   )
                 ],
               ),
-            ),
-          ],
+              const SizedBox(height: 20),
+              // new collection section
+              Expanded(
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: productsList.length,
+                  itemBuilder: (context, index) {
+                    Map<String, dynamic> product = productsList[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 20.0),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 220,
+                            width: 180,
+                            decoration: BoxDecoration(
+                              color: secondryColor,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Image.asset(product['image']),
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            children: [
+                              Container(
+                                height: 40,
+                                width: 120,
+                                decoration: BoxDecoration(
+                                  color: primaryColor,
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "ADD TO BASKET",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 15),
+                              Container(
+                                height: 40,
+                                width: 40,
+                                padding: const EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                  color: secondryColor,
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: Image.asset(
+                                  'assets/icons/bookmark.png',
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              // const SizedBox(height: 20),
+              //most popular section
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'MOST POPULAR',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'more',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_right_rounded,
+                        color: Colors.white,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              // const SizedBox(height: 20),
+              // most popular section
+              SizedBox(
+                height: 100,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: productsList.length,
+                  itemBuilder: (context, index) {
+                    Map item = productsList[index];
+                    return Container(
+                      padding: const EdgeInsets.all(5),
+                      margin: const EdgeInsets.only(right: 20),
+                      height: 100,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        color: secondryColor,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            item['image'],
+                            fit: BoxFit.fitWidth,
+                            height: 65,
+                            width: 150,
+                          ),
+                          const SizedBox(height: 5),
+                          SizedBox(
+                            height: 20,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: item['shoeColor']!.length,
+                              itemBuilder: (context, index) {
+                                Map<String, dynamic> colors =
+                                    item['shoeColor'][index];
+                                return ShoeColorIndicator(
+                                  color1: Color(colors['color1']),
+                                  color2: Color(colors['color2']),
+                                );
+                              },
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
