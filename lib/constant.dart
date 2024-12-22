@@ -25,6 +25,7 @@ const productsList = [
     "type": "Running Shoes",
     "price": "8999",
     "image": "assets/images/shoe1-1.png",
+    'totalRatings': 39,
     "subImages": [
       "assets/images/shoe1-2.png",
       "assets/images/shoe1-3.png",
@@ -41,6 +42,7 @@ const productsList = [
     "type": "Running Shoes",
     "price": "9999",
     "image": "assets/images/shoe2-1.png",
+    'totalRatings': 45,
     "subImages": [
       "assets/images/shoe2-2.png",
       "assets/images/shoe2-3.png",
@@ -59,6 +61,7 @@ const productsList = [
     "type": "Running Shoes",
     "price": "6999",
     "image": "assets/images/shoe3-1.png",
+    'totalRatings': 23,
     "subImages": [
       "assets/images/shoe3-2.png",
       "assets/images/shoe3-3.png",
@@ -76,6 +79,7 @@ const productsList = [
     "type": "Casual Shoes",
     "price": "8999",
     "image": "assets/images/shoe4-1.png",
+    'totalRatings': 33,
     "subImages": [
       "assets/images/shoe4-2.png",
       "assets/images/shoe4-3.png",

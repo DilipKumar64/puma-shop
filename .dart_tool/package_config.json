@@ -38,6 +38,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "custom_rating_bar",
+      "rootUri": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache/hosted/pub.dev/custom_rating_bar-2.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "fake_async",
       "rootUri": "file:///C:/Users/ADMIN/AppData/Local/Pub/Cache/hosted/pub.dev/fake_async-1.3.1",
       "packageUri": "lib/",
@@ -152,7 +158,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2024-10-27T00:34:08.129973Z",
+  "generated": "2025-03-04T00:49:19.545447Z",
   "generator": "pub",
   "generatorVersion": "2.19.5"
 }

@@ -18,6 +18,7 @@ class ShoeColorIndicator extends StatelessWidget {
     List<Color> gradient = [color1, color1, color2, color2];
     List<double> stops = [0, fillStop, fillStop, 1];
     return Container(
+      margin: const EdgeInsets.only(right: 5),
       height: 20,
       width: 20,
       decoration: BoxDecoration(
