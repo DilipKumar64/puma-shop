@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../constant.dart';
 
-class MyNavigationBar extends StatefulWidget {
-  const MyNavigationBar({super.key});
-  // final int pageIndex;
+class MyBottomNavigationBar extends StatefulWidget {
+  const MyBottomNavigationBar({super.key});
 
   @override
-  State<MyNavigationBar> createState() => _MyNavigationBarState();
+  State<MyBottomNavigationBar> createState() => _MyBottomNavigationBarState();
 }
 
-class _MyNavigationBarState extends State<MyNavigationBar> {
+class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   int pageIndex = 0;
   @override
   Widget build(BuildContext context) {

@@ -1,11 +1,14 @@
 import 'package:custom_rating_bar/custom_rating_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:puma_shop/constant.dart';
+import 'package:puma_shop/screens/category_page.dart';
 import 'package:puma_shop/screens/product_page.dart';
 import 'package:puma_shop/screens/widgets/my_app_bar.dart';
+import 'package:puma_shop/screens/widgets/my_icon_button.dart';
 import 'package:puma_shop/screens/widgets/my_navigation_bar.dart';
 import 'package:puma_shop/screens/widgets/search_and_filter.dart';
 import 'package:puma_shop/screens/widgets/shoe_color_indicator.dart';
+import 'package:puma_shop/screens/widgets/show_colors_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      bottomNavigationBar: const MyNavigationBar(),
+      bottomNavigationBar: const MyBottomNavigationBar(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -46,7 +49,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (contxt) => const CategoryPage(
+                              categoryName: 'NEWEST COLLECTION'),
+                        ),
+                      );
+                    },
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
@@ -82,7 +92,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (contxt) =>
+                              const CategoryPage(categoryName: 'MOST POPULAR'),
+                        ),
+                      );
+                    },
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
@@ -149,21 +166,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  SizedBox(
-                    height: 20,
-                    child: ListView.builder(
-                      itemCount: product['shoeColor'].length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        Map<String, dynamic> colors =
-                            product['shoeColor'][index];
-                        return ShoeColorIndicator(
-                          color2: Color(colors['color2']),
-                          color1: Color(colors['color1']),
-                        );
-                      },
-                    ),
-                  )
+                  ShoeColorsWidget(colors: product['shoeColor'], size: 20)
                 ],
               ),
             ),
@@ -227,7 +230,7 @@ class _HomePageState extends State<HomePage> {
                           emptyColor: const Color(0xff8d8d8c),
                           size: 20,
                           filledIcon: Icons.star,
-                          emptyIcon: Icons.star_border,
+                          emptyIcon: Icons.star,
                           onRatingChanged: (value) => debugPrint('$value'),
                           initialRating: 3,
                           maxRating: 5,
@@ -245,10 +248,10 @@ class _HomePageState extends State<HomePage> {
                               style: const TextStyle(color: Colors.white),
                             ),
                             const Spacer(),
-                            const Icon(
-                              Icons.favorite_border,
+                            Image.asset(
+                              'assets/icons/favorite.png',
+                              height: 15,
                               color: Colors.white,
-                              size: 20,
                             )
                           ],
                         )
@@ -273,19 +276,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       const SizedBox(width: 15),
-                      Container(
-                        height: 40,
-                        width: 40,
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          color: secondryColor,
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Image.asset(
-                          'assets/icons/bookmark.png',
-                          color: Colors.white,
-                        ),
-                      ),
+                      const MyIconButton(iconPath: 'assets/icons/bookmark.png'),
                     ],
                   )
                 ],
